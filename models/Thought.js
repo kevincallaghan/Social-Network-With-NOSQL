@@ -14,9 +14,7 @@ const thoughtSchema = new Schema(
       required: true,
       minLength: 1,
     },
-    reactions: 
-    //TODO insert array of reactions
-
+    reactions: [reactionSchema],
     createdAt: {
       type: Date,
       default: Date.now,
