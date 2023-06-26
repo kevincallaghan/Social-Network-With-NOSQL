@@ -32,7 +32,7 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 ## Credits
 
-1. I found mongoose email validation on a stackoverflow page titled "Mongoose - validate email syntax" in an answer from user .  Here is a link to the page: https://stackoverflow.com/questions/18022365/mongoose-validate-email-syntax 
+1. I found mongoose email validation on a stackoverflow page titled "Mongoose - validate email syntax" in an answer from user Isaac S. Weaver.  Here is a link to the page: https://stackoverflow.com/questions/18022365/mongoose-validate-email-syntax 
 
 2. 
 
