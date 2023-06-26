@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, Types } = require('mongoose');
 
 const userSchema = new Schema(
     {
@@ -14,10 +14,14 @@ const userSchema = new Schema(
             unique: true,
             //TODO find mongoose email validation
         },
-        thoughts: [],
-        //TODO insert array of _id referencing thoughts
-        friends: [],
-        //TODO insert array of _id referencing users
+        thoughts: [{
+            type: Schema.Types.ObjectId,
+            ref: 'Thought'
+        }],
+        friends: [{
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }],
     },
     {
         toJSON: {
