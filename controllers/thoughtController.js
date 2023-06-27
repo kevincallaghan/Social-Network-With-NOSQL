@@ -81,6 +81,42 @@ module.exports = {
     }
   },
 
-  //TODO Need to add and remove reaction
+   async addReaction(req, res) {
+        try {
+            const thought = await Thought.findOneAndUpdate(
+                { _id: req.params.thoughtId },
+                { $addToSet: { reactions: req.body } },
+                { new: true, runValidators: true }
+            );
+
+            if (!thought) {
+                res.status(404).json({ message: 'No thought with this id!' });
+            }
+
+            res.json(thought);
+        } catch (err) {
+            console.log(err);
+            return res.status(500).json(err);
+        }
+    },
+
+    async removeReaction(req, res) {
+        try {
+            const thought = await Thought.findOneAndUpdate(
+                {_id: req.params.thoughtId },
+                { $pull: { reactions: { reactionId: req.params.reactionId } } },
+                { new: true }
+            );
+
+            if (!thought) {
+                res.status(404).json({ message: 'No thought with this id!' });
+            }
+
+            res.json(thought);
+        } catch (err) {
+            console.log(err);
+            return res.status(500).json(err);
+        }
+    }
 
 };
