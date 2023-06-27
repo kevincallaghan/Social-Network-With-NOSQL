@@ -26,11 +26,15 @@ module.exports = {
     }
   },
   // Create a thought
-  //TODO Need to push the created thought's _id to the associated user's thoughts array field
+
   async createThought(req, res) {
     try {
-    
       const newThought = await Thought.create(req.body);
+      const thoughtUser = await User.findOneAndUpdate(
+        { username: req.body.username },
+        { $push: { thoughts: newThought._id } },
+        { runValidators: true, new: true }
+      );
       res.json(newThought);
     } catch (err) {
       console.log(err);
@@ -45,6 +49,12 @@ module.exports = {
       if (!deletedThought) { delete
         res.status(404).json({ message: 'No thought with that ID' });
       }
+
+      const thoughtUser = await User.findOneAndUpdate(
+        { username: deletedThought.username },
+        { $pull: { thoughts: deletedThought._id } },
+        { runValidators: true, new: true }
+      );
 
       res.json({ message: 'Thought deleted!' });
 
