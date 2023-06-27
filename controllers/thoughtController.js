@@ -26,8 +26,10 @@ module.exports = {
     }
   },
   // Create a thought
+  //TODO Need to push the created thought's _id to the associated user's thoughts array field
   async createThought(req, res) {
     try {
+    
       const newThought = await Thought.create(req.body);
       res.json(newThought);
     } catch (err) {
@@ -68,4 +70,7 @@ module.exports = {
       res.status(500).json(err);
     }
   },
+
+  //TODO Need to add and remove reaction
+
 };

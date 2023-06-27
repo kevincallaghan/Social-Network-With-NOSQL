@@ -67,4 +67,8 @@ module.exports = {
       res.status(500).json(err);
     }
   },
+
+  //TODO Need to add and remove friend
+
+
 };
