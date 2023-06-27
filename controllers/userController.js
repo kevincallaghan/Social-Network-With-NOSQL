@@ -68,20 +68,20 @@ module.exports = {
     }
   },
 
-  //TODO Need to add and remove friend
+  
   async addFriend(req, res) {
         try {
-            const user = await User.findOneAndUpdate(
+            const userData = await User.findOneAndUpdate(
                 { _id: req.params.userId },
                 { $addToSet: { friends: req.params.friendId } },
                 { new: true, runValidators: true }
             )
 
-            if (!user) {
+            if (!userData) {
                 res.status(404).json({ message: 'No user with this id!' });
             }
 
-            res.json(user);
+            res.json(userData);
         } catch (err) {
             console.log(err);
             return res.status(500).json(err);
@@ -90,17 +90,17 @@ module.exports = {
 
     async removeFriend(req, res) {
         try {
-            const user = await User.findOneAndUpdate(
+            const userData = await User.findOneAndUpdate(
                 { _id: req.params.userId },
                 { $pull: { friends: req.params.friendId } },
                 { new: true }
             )
 
-            if (!user) {
+            if (!userData) {
                 res.status(404).json({ message: 'No user with this id!' });
             }
 
-            res.json(user);
+            res.json(userData);
         } catch (err) {
             console.log(err);
             return res.status(500).json(err);
