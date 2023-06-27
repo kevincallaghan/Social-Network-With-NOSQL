@@ -2,12 +2,7 @@
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+This project represents the back end of a social network application using a no-SQL database, in this case MongoDB.  Through a series of API calls, you can complete a series of CRUD operations on Users, their Thoughts (posts), and link friends and reactions.  
 
 ## Table of Contents
 
@@ -18,23 +13,19 @@ Provide a short description explaining the what, why, and how of your project. U
 
 ## Installation
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+To run this program in the terminal, simply run "npm i" to install the dependencies, then run "npm run start" to start the server.
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+Here is a link to the demo video: https://watch.screencastify.com/v/kbf61xJCiLqK8nlJbhJV 
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
-
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+Through a series of CRUD operations, you are able to Find all Users, Find a User by ID, Create a New User, Update a User, and Delete a User.  You are also able to Find all thoughts, Find a Thought by ID, Create a new Thought, Update a Thought, and Delete a Thought.  Additionally, you can add and delete Friends and Reactions.
 
 ## Credits
 
 1. I found mongoose email validation on a stackoverflow page titled "Mongoose - validate email syntax" in an answer from user Isaac S. Weaver.  Here is a link to the page: https://stackoverflow.com/questions/18022365/mongoose-validate-email-syntax 
 
-2. 
+2. I referenced the class mini project for many parts of this homework assignment.
 
 ## License
 
